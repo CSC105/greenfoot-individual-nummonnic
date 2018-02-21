@@ -47,6 +47,7 @@ public class fla extends Actor
     private GreenfootImage run36 = new GreenfootImage("Flamingo36.png");
     private int frame = 1;
     private int animationCounter = 0;
+    private int shotTimer = 0;
     /**
      * Act - do whatever the fla1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -55,7 +56,14 @@ public class fla extends Actor
     {
         checkKey();
         animationCounter++;
-        
+        if (shotTimer > 0) {
+            shotTimer = shotTimer - 1;
+        }
+        else if (Greenfoot.isKeyDown("space")) {
+            getWorld().addObject(new Shoot(this), getX(), getY());
+            shotTimer = 10; // delay next shot
+        }
+    
         // Add your action code here.
     }    
     public void checkKey()

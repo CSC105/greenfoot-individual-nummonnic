@@ -19,4 +19,10 @@ public class MyWorld extends World
         super(900, 600, 1); 
         addObject(new fla(),36,497);
     }
+    public void act()
+    {
+        if (Greenfoot.getRandomNumber(500) < 3) {
+            addObject(new Asteroid(), 0, 20);
+        }
+    }
 }
