@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class fla extends Actor
 {
-    private int speed = 12;
+    private int speed = 11;
     private GreenfootImage run1 = new GreenfootImage("Flamingo1.png");
     private GreenfootImage run2 = new GreenfootImage("Flamingo2.png");
     private GreenfootImage run3 = new GreenfootImage("Flamingo3.png");
@@ -61,7 +61,7 @@ public class fla extends Actor
         }
         else if (Greenfoot.isKeyDown("space")) {
             getWorld().addObject(new Shoot(this), getX(), getY());
-            shotTimer = 10; // delay next shot
+            shotTimer = 30; // delay next shot
         }
     
         // Add your action code here.

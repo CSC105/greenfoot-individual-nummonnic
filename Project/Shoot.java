@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Shoot extends Actor
 {
-    private fla myShip;
+   private fla myShip;
     /**
      * Act - do whatever the Shoot wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -25,19 +25,23 @@ public class Shoot extends Actor
         y = y - 5;
         setLocation(getX(), y);
         Actor rock = getOneIntersectingObject(Asteroid.class);
-        if (rock != null) {
+        Actor rock1 = getOneIntersectingObject(Asteroid1.class);
+        if (rock != null || rock1 != null) {
                 // We've hit an asteroid!
                 hitAnAsteroid();
                 getWorld().removeObject(rock);
+                getWorld().removeObject(rock1);
                 getWorld().removeObject(this);
             }
         }
+        
         else {
             // I reached the top of the screen
             getWorld().removeObject(this);
         }
-        // Add your action code here.
-    }    
+        
+    }
+
     private void hitAnAsteroid()
     {
         // What goes here????

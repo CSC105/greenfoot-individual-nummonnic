@@ -21,8 +21,13 @@ public class MyWorld extends World
     }
     public void act()
     {
-        if (Greenfoot.getRandomNumber(500) < 3) {
-            addObject(new Asteroid(), 0, 20);
+        if (Greenfoot.getRandomNumber(1000) < 10) {
+            addObject(new Asteroid(), Greenfoot.getRandomNumber(880), 0);
+        }
+        if (Greenfoot.getRandomNumber(1000) < 2) {
+            addObject(new Asteroid1(), Greenfoot.getRandomNumber(880), 0);
         }
     }
+
 }
+
