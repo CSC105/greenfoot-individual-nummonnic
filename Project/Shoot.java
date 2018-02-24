@@ -26,11 +26,32 @@ public class Shoot extends Actor
         setLocation(getX(), y);
         Actor rock = getOneIntersectingObject(Asteroid.class);
         Actor rock1 = getOneIntersectingObject(Asteroid1.class);
-        if (rock != null || rock1 != null) {
-                // We've hit an asteroid!
-                hitAnAsteroid();
+        Actor diamond = getOneIntersectingObject(Diamond.class);
+        if (rock != null) {
+                
+                World MyWorld = getWorld();
                 getWorld().removeObject(rock);
+                MyWorld myworld = (MyWorld)MyWorld;
+                Counter counter = myworld.getCounter();
+                counter.addScore(50);
+                getWorld().removeObject(this);
+            }
+            if (rock1 != null) {
+                
+                World MyWorld = getWorld();
                 getWorld().removeObject(rock1);
+                MyWorld myworld = (MyWorld)MyWorld;
+                Counter counter = myworld.getCounter();
+                counter.addScore(70);
+                getWorld().removeObject(this);
+            }
+            if (diamond != null) {
+                
+                World MyWorld = getWorld();
+                getWorld().removeObject(diamond);
+                MyWorld myworld = (MyWorld)MyWorld;
+                Counter counter = myworld.getCounter();
+                counter.addScore(100);
                 getWorld().removeObject(this);
             }
         }
@@ -38,14 +59,9 @@ public class Shoot extends Actor
         else {
             // I reached the top of the screen
             getWorld().removeObject(this);
-        }
-        
-    }
+        }       
 
-    private void hitAnAsteroid()
-    {
-        // What goes here????
-        // We want to call the "bumpCount" method from the Counter class -
-        // but how??!!
+
     }
+    
 }

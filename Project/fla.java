@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class fla extends Actor
 {
-    private int speed = 11;
+    private int speed = 8;
     private GreenfootImage run1 = new GreenfootImage("Flamingo1.png");
     private GreenfootImage run2 = new GreenfootImage("Flamingo2.png");
     private GreenfootImage run3 = new GreenfootImage("Flamingo3.png");
@@ -48,12 +48,14 @@ public class fla extends Actor
     private int frame = 1;
     private int animationCounter = 0;
     private int shotTimer = 0;
+    
     /**
      * Act - do whatever the fla1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
+        
         checkKey();
         animationCounter++;
         if (shotTimer > 0) {
@@ -61,11 +63,20 @@ public class fla extends Actor
         }
         else if (Greenfoot.isKeyDown("space")) {
             getWorld().addObject(new Shoot(this), getX(), getY());
-            shotTimer = 30; // delay next shot
+            shotTimer = 30; 
+            Greenfoot.playSound("shoot.wav");// delay next shot
         }
-    
-        // Add your action code here.
+        checkTouch();
     }    
+    public void checkTouch(){
+        if(isTouching(Asteroid.class)||isTouching(Asteroid1.class)){
+            gameOver();
+            Greenfoot.playSound("over.wav");
+        }
+    }
+    public void gameOver(){
+        getWorld().removeObject(this);
+    }
     public void checkKey()
     {
         if(Greenfoot.isKeyDown("right"))
@@ -75,13 +86,13 @@ public class fla extends Actor
     else if(Greenfoot.isKeyDown("left"))
     {
         moveLeft();
-}
-}
+    }
+    }
   
     public void moveLeft()
     {
         setLocation(getX()-speed, getY());
-        if(animationCounter % 0.5 == 0)
+        if(animationCounter % 2 == 0)
         animateLeft();
     }
     public void animateLeft()
@@ -233,13 +244,13 @@ public class fla extends Actor
         return;
     }
     frame--;
-}
-    public void moveRight()
-    {
+   }
+   public void moveRight()
+   {
         setLocation(getX()+speed, getY());
         if(animationCounter % 1 == 0)
         animateRight();
-    }
+   }
     public void animateRight()
     {
         if(frame == 1)
@@ -389,5 +400,5 @@ public class fla extends Actor
         return;
     }
     frame++;
-}
+   }
 }

@@ -9,27 +9,42 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Asteroid extends Actor
 {
     public int speed = 1;
-    /**
-     * Act - do whatever the Asteroid wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() // main for the trees it will keep doing these over and over
+    //public boolean shooting;
+    //private long lastTimeShoot;
+    
+    //public Asteroid(){
+      //shooting = ( Math.random() < 0.5 )? true: false;
+      //lastTimeShoot = 0;    
+    //}
+    
+    
+    public void act() 
     {
         Move();
         Gone();
-    }  
+        //if( shooting ) shoot();
+    }
     
-    public void Move() //this moves the trees down the screen. I added a speed still working out bugs to make the trees move faster or slower depending on up or down.
+    public void Move() 
     {
         setLocation(getX(), getY() + speed ); 
         // was trying to adjust speed. work in progress variable does not seem to change.
     }
     
-     public void Gone() // removes trees when they reach the bottom of the world.
+     public void Gone() 
      {
          if(getY() >= getWorld().getHeight() -1)
          {
              getWorld().removeObject(this);
          }
      }
+     
+     //public void shoot(){
+        //if( System.nanoTime() - lastTimeShoot > 500000000 ){
+            //getWorld().addObject( new Attack( 2 ), getX(), getY() + 10 );
+            //lastTimeShoot = System.nanoTime();
+        //}
+     //}
+     
+     
 }
