@@ -48,11 +48,15 @@ public class fla extends Actor
     private int frame = 1;
     private int animationCounter = 0;
     private int shotTimer = 0;
-    
+    GreenfootSound sound1 = new GreenfootSound("shoot.wav");
+    GreenfootSound sound2 = new GreenfootSound("deathd.wav");
     /**
      * Act - do whatever the fla1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public fla(){
+       sound1.setVolume(80);        
+    }
     public void act() 
     {
         
@@ -64,14 +68,18 @@ public class fla extends Actor
         else if (Greenfoot.isKeyDown("space")) {
             getWorld().addObject(new Shoot(this), getX(), getY());
             shotTimer = 30; 
-            Greenfoot.playSound("shoot.wav");// delay next shot
+            sound1.setVolume(66);
+            sound1.play();
+            
+            // delay next shot
         }
         checkTouch();
     }    
     public void checkTouch(){
         if(isTouching(Asteroid.class)||isTouching(Asteroid1.class)){
             gameOver();
-            Greenfoot.playSound("over.wav");
+            sound2.setVolume(85);
+            sound2.play();
         }
     }
     public void gameOver(){

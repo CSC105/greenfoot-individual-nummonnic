@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Shoot extends Actor
 {
    private fla myShip;
+   GreenfootSound sound3 = new GreenfootSound("drop.mp3");
     /**
      * Act - do whatever the Shoot wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -25,7 +26,6 @@ public class Shoot extends Actor
         y = y - 5;
         setLocation(getX(), y);
         Actor rock = getOneIntersectingObject(Asteroid.class);
-        Actor rock1 = getOneIntersectingObject(Asteroid1.class);
         Actor diamond = getOneIntersectingObject(Diamond.class);
         if (rock != null) {
                 
@@ -33,24 +33,20 @@ public class Shoot extends Actor
                 getWorld().removeObject(rock);
                 MyWorld myworld = (MyWorld)MyWorld;
                 Counter counter = myworld.getCounter();
+                sound3.setVolume(35);
+                sound3.play();
                 counter.addScore(50);
                 getWorld().removeObject(this);
             }
-            if (rock1 != null) {
-                
-                World MyWorld = getWorld();
-                getWorld().removeObject(rock1);
-                MyWorld myworld = (MyWorld)MyWorld;
-                Counter counter = myworld.getCounter();
-                counter.addScore(70);
-                getWorld().removeObject(this);
-            }
+           
             if (diamond != null) {
                 
                 World MyWorld = getWorld();
                 getWorld().removeObject(diamond);
                 MyWorld myworld = (MyWorld)MyWorld;
                 Counter counter = myworld.getCounter();
+                sound3.setVolume(35);
+                sound3.play();
                 counter.addScore(100);
                 getWorld().removeObject(this);
             }
