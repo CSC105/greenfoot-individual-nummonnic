@@ -7,8 +7,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class home extends World
-{ 
-    GreenfootSound startSound;
+{
+    
     /**
      * Constructor for objects of class home.
      * 
@@ -17,13 +17,8 @@ public class home extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1);
-        button start = new button();
-        addObject(start,450 ,300);
-       startSound = new GreenfootSound("home.mp3");
-       Greenfoot.start();
+        addObject(new button(),450 ,300);
+        
+        
     }
-    
-       }
-
-
-
+}

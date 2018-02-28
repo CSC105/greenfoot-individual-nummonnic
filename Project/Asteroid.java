@@ -20,7 +20,7 @@ public class Asteroid extends Actor
     
     public void act() 
     {
-        Move(); 
+        Move();
         Gone();
         //if( shooting ) shoot();
     }
