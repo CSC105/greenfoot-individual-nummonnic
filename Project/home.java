@@ -20,7 +20,7 @@ public class home extends World
         button start = new button();
         addObject(start,450 ,300);
        startSound = new GreenfootSound("home.mp3");
-       Greenfoot.start();
+       //Greenfoot.start();
     }
     
        }

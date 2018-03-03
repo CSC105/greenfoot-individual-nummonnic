@@ -22,10 +22,10 @@ public class Asteroid1 extends Actor
     public void Move() 
     {
         setLocation(getX(), getY() + speed ); 
-        // was trying to adjust speed. work in progress variable does not seem to change.
+       
     }
     
-     public void Gone() // removes trees when they reach the bottom of the world.
+     public void Gone() 
      {
          if(getY() >= getWorld().getHeight() -1)
          {

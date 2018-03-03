@@ -48,7 +48,7 @@ public class MyWorld extends World
 
     public void checkMusic(){
         if(!sound.isPlaying()){
-            sound.play();
+            sound.playLoop();
         }
     }
 
